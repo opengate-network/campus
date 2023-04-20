@@ -21,6 +21,7 @@ dependencies:
 
   supabase_flutter: ^1.7.0
   equatable: ^2.0.5
+  bloc: ^8.1.1
   flutter_bloc: ^8.1.2
 
 
