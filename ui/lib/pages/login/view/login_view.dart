@@ -12,7 +12,7 @@ class LoginView extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         TextButton(
-          onPressed: () => context.read<LoginCubit>().login(),
+          onPressed: () => context.read<LoginCubit>().login(context),
           child: const Text('Login'),
         ),
       ],

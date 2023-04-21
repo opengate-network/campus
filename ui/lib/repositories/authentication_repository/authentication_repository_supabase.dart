@@ -16,10 +16,11 @@ class AuthenticationRepositorySupabase extends AuthenticationRepository {
       .map((state) => state.session?.user.toUser() ?? User.empty);
 
   @override
-  Future<void> ssoLogin() async {
-    await _authClient.signInWithOAuth(
+  Future<bool> ssoLogin() async {
+    return await _authClient.signInWithOAuth(
       supabase_auth.Provider.keycloak,
       redirectTo: '${urlScheme}login',
+      scopes: 'openid,email',
     );
   }
 

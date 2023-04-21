@@ -8,7 +8,7 @@ abstract class AuthenticationRepository {
 
   Stream<User> get user;
 
-  Future<void> ssoLogin();
+  Future<bool> ssoLogin();
 
   Future<void> logOut();
 }
