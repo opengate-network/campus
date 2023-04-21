@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:ui/repositories/authentication_repository/authentication_repository.dart';
+import 'package:campus/repositories/authentication_repository/authentication_repository.dart';
 
 part 'authentication_event.dart';
 part 'authentication_state.dart';

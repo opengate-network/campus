@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:ui/pages/login/login.dart';
-import 'package:ui/pages/login/view/login_view.dart';
-import 'package:ui/repositories/authentication_repository/authentication_repository.dart';
+import 'package:campus/pages/login/login.dart';
+import 'package:campus/pages/login/view/login_view.dart';
+import 'package:campus/repositories/authentication_repository/authentication_repository.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});

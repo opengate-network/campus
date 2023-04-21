@@ -1,5 +1,5 @@
 import 'package:supabase_flutter/supabase_flutter.dart' as supabase_auth;
-import 'package:ui/constants.dart';
+import 'package:campus/constants.dart';
 
 import 'authentication_repository.dart';
 

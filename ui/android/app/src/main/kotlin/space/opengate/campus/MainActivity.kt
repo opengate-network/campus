@@ -1,4 +1,4 @@
-package space.opengate.campus.ui
+package space.opengate.campus
 
 import io.flutter.embedding.android.FlutterActivity
 

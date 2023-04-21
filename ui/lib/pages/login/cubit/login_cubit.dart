@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:ui/repositories/authentication_repository/authentication_repository.dart';
+import 'package:campus/repositories/authentication_repository/authentication_repository.dart';
 
 part 'login_state.dart';
 

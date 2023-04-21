@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:ui/blocs/authentication/authentication_bloc.dart';
-import 'package:ui/pages/login/login.dart';
-import 'package:ui/pages/main/main.dart';
+import 'package:campus/blocs/authentication/authentication_bloc.dart';
+import 'package:campus/pages/login/login.dart';
+import 'package:campus/pages/main/main.dart';
 
 List<Page<dynamic>> onGenerateAppViewPages(
   AuthenticationStatus state,

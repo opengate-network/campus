@@ -8,8 +8,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-import 'package:ui/app/view.dart';
-import 'package:ui/repositories/authentication_repository/authentication_repository_supabase.dart';
+import 'package:campus/app/view.dart';
+import 'package:campus/repositories/authentication_repository/authentication_repository_supabase.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

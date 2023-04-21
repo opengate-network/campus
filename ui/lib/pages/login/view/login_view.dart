@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:ui/pages/login/cubit/login_cubit.dart';
+import 'package:campus/pages/login/cubit/login_cubit.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({super.key});

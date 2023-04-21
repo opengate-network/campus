@@ -1,9 +1,9 @@
 import 'package:flow_builder/flow_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:ui/app/routes.dart';
-import 'package:ui/blocs/authentication/authentication_bloc.dart';
-import 'package:ui/repositories/authentication_repository/authentication_repository_supabase.dart';
+import 'package:campus/app/routes.dart';
+import 'package:campus/blocs/authentication/authentication_bloc.dart';
+import 'package:campus/repositories/authentication_repository/authentication_repository_supabase.dart';
 
 import 'theme.dart';
 
