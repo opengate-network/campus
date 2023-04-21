@@ -1,4 +1,5 @@
 import 'package:supabase_flutter/supabase_flutter.dart' as supabase_auth;
+import 'package:ui/constants.dart';
 
 import 'authentication_repository.dart';
 
@@ -13,6 +14,14 @@ class AuthenticationRepositorySupabase extends AuthenticationRepository {
   @override
   Stream<User> get user => _authClient.onAuthStateChange
       .map((state) => state.session?.user.toUser() ?? User.empty);
+
+  @override
+  Future<void> ssoLogin() async {
+    await _authClient.signInWithOAuth(
+      supabase_auth.Provider.keycloak,
+      redirectTo: '${urlScheme}login',
+    );
+  }
 
   @override
   Future<void> logOut() async {
