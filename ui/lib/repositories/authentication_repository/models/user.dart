@@ -13,7 +13,7 @@ class User extends Equatable {
   @override
   List<Object?> get props => [id, name, email, role];
 
-  bool get isNotEmpty => this == empty;
+  bool get isNotEmpty => this != empty;
 
   factory User.fromJson(Map<String, dynamic> json) {
     return User(

@@ -3,6 +3,8 @@ import 'package:supabase_flutter/supabase_flutter.dart' as supabase_auth;
 import 'authentication_repository.dart';
 
 class AuthenticationRepositorySupabase extends AuthenticationRepository {
+  AuthenticationRepositorySupabase();
+
   final _authClient = supabase_auth.Supabase.instance.client.auth;
 
   @override

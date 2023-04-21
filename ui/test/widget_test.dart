@@ -7,13 +7,24 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:ui/app/view.dart';
+import 'package:ui/repositories/authentication_repository/authentication_repository_supabase.dart';
 
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
 
-void main() {
+  await Supabase.initialize(
+    url: 'SUPABASE_URL',
+    anonKey: 'SUPABASE_ANON_KEY',
+  );
+  final authenticationRepository = AuthenticationRepositorySupabase();
+
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(const App());
+    await tester.pumpWidget(App(
+      authenticationRepository: authenticationRepository,
+    ));
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);
