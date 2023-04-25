@@ -1,3 +1,4 @@
+import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flow_builder/flow_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -36,6 +37,7 @@ class AppView extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: theme,
+      darkTheme: themeDark,
       home: FlowBuilder<AuthenticationStatus>(
         state: context.select((AuthenticationBloc bloc) => bloc.state.status),
         onGeneratePages: onGenerateAppViewPages,
