@@ -1,7 +1,9 @@
+import 'package:campus/pages/main/cubit/main_cubit.dart';
 import 'package:campus/pages/main/view/main_view.dart';
-import 'package:campus/repositories/authentication_repository/authentication_repository_supabase.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'main_navigation_bar.dart';
 
 class MainPage extends StatelessWidget {
   const MainPage({super.key});
@@ -10,11 +12,15 @@ class MainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Campus'),
+    return BlocProvider(
+      create: (BuildContext context) => MainCubit(),
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text('Campus'),
+        ),
+        body: const MainView(),
+        bottomNavigationBar: const MainNavigationBar(),
       ),
-      body: MainView(),
     );
   }
 }

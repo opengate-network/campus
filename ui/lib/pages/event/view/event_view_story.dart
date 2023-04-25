@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class MainViewStory extends StatelessWidget {
+class EventViewStory extends StatelessWidget {
   static const height = 200.0;
 
-  const MainViewStory({super.key});
+  const EventViewStory({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,18 +13,18 @@ class MainViewStory extends StatelessWidget {
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: 6,
-        prototypeItem: MainViewStoryTile(),
-        itemBuilder: (context, index) => MainViewStoryTile(),
+        prototypeItem: const EventViewStoryTile(),
+        itemBuilder: (context, index) => const EventViewStoryTile(),
       ),
     );
   }
 }
 
-class MainViewStoryTile extends StatelessWidget {
+class EventViewStoryTile extends StatelessWidget {
   static const bubbleSize = 120.0;
   static final border = BorderRadius.circular(bubbleSize);
 
-  const MainViewStoryTile({super.key});
+  const EventViewStoryTile({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +55,7 @@ class MainViewStoryTile extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 5),
-          SizedBox(
+          const SizedBox(
             width: bubbleSize,
             child: Text(
               'Stranger Things : The Experience',
