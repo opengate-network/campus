@@ -11,11 +11,10 @@ class MainView extends StatelessWidget {
     return BlocBuilder<MainCubit, MainState>(
       builder: (context, state) {
         switch(state.pageSelector){
-
           case MainPageSelector.event:
             return const EventView();
           case MainPageSelector.account:
-            return SizedBox();
+            return const SizedBox();
         }
       },
     );

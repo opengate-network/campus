@@ -1,27 +1,29 @@
 import 'package:flutter/material.dart';
 
 class EventViewStory extends StatelessWidget {
-  static const height = 200.0;
+  static const height = 150.0;
 
   const EventViewStory({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: height,
-      width: double.infinity,
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-        itemCount: 6,
-        prototypeItem: const EventViewStoryTile(),
-        itemBuilder: (context, index) => const EventViewStoryTile(),
+    return SliverToBoxAdapter(
+      child: SizedBox(
+        height: height,
+        width: double.infinity,
+        child: ListView.builder(
+          scrollDirection: Axis.horizontal,
+          itemCount: 6,
+          prototypeItem: const EventViewStoryTile(),
+          itemBuilder: (context, index) => const EventViewStoryTile(),
+        ),
       ),
     );
   }
 }
 
 class EventViewStoryTile extends StatelessWidget {
-  static const bubbleSize = 120.0;
+  static const bubbleSize = 100.0;
   static final border = BorderRadius.circular(bubbleSize);
 
   const EventViewStoryTile({super.key});
@@ -61,6 +63,7 @@ class EventViewStoryTile extends StatelessWidget {
               'Stranger Things : The Experience',
               overflow: TextOverflow.clip,
               textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 12),
             ),
           ),
         ],

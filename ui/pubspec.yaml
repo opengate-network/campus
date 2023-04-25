@@ -24,6 +24,7 @@ dependencies:
   bloc: ^8.1.1
   flutter_bloc: ^8.1.2
   flow_builder: ^0.0.9
+  font_awesome_flutter: ^10.4.0
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -38,6 +39,9 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/logos/opengate_logo_light.png
+    - assets/logos/opengate_logo_dark.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:
