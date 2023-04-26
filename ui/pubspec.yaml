@@ -42,6 +42,12 @@ flutter:
   assets:
     - assets/logos/opengate_logo_light.png
     - assets/logos/opengate_logo_dark.png
+    - assets/logos/components/esiee.png
+
+  fonts:
+    - family: Open Sans
+      fonts:
+        - asset: assets/fonts/OpenSans.ttf
 
   # To add assets to your application, add an assets section, like this:
   # assets:

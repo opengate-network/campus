@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 
-final brightness = SchedulerBinding.instance.window.platformBrightness;
-final isDarkMode = brightness == Brightness.dark;
+const opengateBlue = Color(0x002e4b73);
 
 final ThemeData theme = ThemeData(
   useMaterial3: true,
-  colorScheme: const ColorScheme.light(),
+  colorScheme: ColorScheme.fromSeed(
+    seedColor: opengateBlue,
+  ),
 );
 
 final ThemeData themeDark = ThemeData(
   useMaterial3: true,
-  colorScheme: const ColorScheme.dark(),
+  colorScheme: ColorScheme.fromSeed(
+    seedColor: opengateBlue,
+    brightness: Brightness.dark,
+  ),
 );
