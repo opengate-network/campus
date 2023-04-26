@@ -1,4 +1,6 @@
+import 'package:campus/pages/main/main.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'event_view_school_grid.dart';
 import 'event_view_story.dart';
@@ -25,7 +27,6 @@ class EventView extends StatelessWidget {
   }
 }
 
-
 /*
 class _EventViewAppbar extends StatelessWidget {
   const _EventViewAppbar({super.key});
@@ -46,7 +47,6 @@ class _EventViewAppbar extends StatelessWidget {
 }
 */
 
-
 class _EventViewSegmentTitle extends StatelessWidget {
   final String text;
 
@@ -59,10 +59,8 @@ class _EventViewSegmentTitle extends StatelessWidget {
       sliver: SliverToBoxAdapter(
         child: Text(
           text,
-          style: Theme.of(context)
-              .textTheme
-              .titleSmall
-              ?.merge(const TextStyle(fontWeight: FontWeight.w500, fontSize: 17)),
+          style: Theme.of(context).textTheme.titleSmall?.merge(
+              const TextStyle(fontWeight: FontWeight.w500, fontSize: 17)),
         ),
       ),
     );

@@ -27,7 +27,6 @@ class EventViewStory extends StatelessWidget {
 
 class EventViewStoryTile extends StatelessWidget {
   static const bubbleSize = 100.0;
-  static final border = BorderRadius.circular(bubbleSize);
 
   const EventViewStoryTile({super.key});
 
@@ -42,7 +41,7 @@ class EventViewStoryTile extends StatelessWidget {
             height: bubbleSize,
             child: Ink(
               decoration: BoxDecoration(
-                borderRadius: border,
+                shape: BoxShape.circle,
                 border: Border.all(
                   width: 2,
                   color: Colors.red,
@@ -50,11 +49,11 @@ class EventViewStoryTile extends StatelessWidget {
                 image: const DecorationImage(
                   image: NetworkImage(
                       'https://www.radiofrance.fr/s3/cruiser-production/2020/10/9ecbbc37-81fe-4ce0-af3b-c22f405c3092/1200x680_gettyimages-1135378306.jpg'),
-                  fit: BoxFit.fitHeight,
+                  fit: BoxFit.cover,
                 ),
               ),
               child: InkWell(
-                borderRadius: border,
+                customBorder: const CircleBorder(),
                 onTap: () {},
               ),
             ),
