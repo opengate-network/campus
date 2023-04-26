@@ -7,15 +7,18 @@ class EventViewStory extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SliverToBoxAdapter(
-      child: SizedBox(
-        height: height,
-        width: double.infinity,
-        child: ListView.builder(
-          scrollDirection: Axis.horizontal,
-          itemCount: 6,
-          prototypeItem: const EventViewStoryTile(),
-          itemBuilder: (context, index) => const EventViewStoryTile(),
+    return SliverPadding(
+      padding: const EdgeInsets.symmetric(horizontal: 5),
+      sliver: SliverToBoxAdapter(
+        child: SizedBox(
+          height: height,
+          width: double.infinity,
+          child: ListView.builder(
+            scrollDirection: Axis.horizontal,
+            itemCount: 6,
+            prototypeItem: const EventViewStoryTile(),
+            itemBuilder: (context, index) => const EventViewStoryTile(),
+          ),
         ),
       ),
     );
