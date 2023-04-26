@@ -106,9 +106,10 @@ class TicketWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context).textTheme;
 
-    const qrcodeWidget = Center(
+    final qrcodeWidget = Center(
       child: TicketQRCode(
         code: 'uc2emaezuut5Thiechaebeing2faw6so',
+        size: centered ? 300.0 : null,
       ),
     );
 
@@ -152,15 +153,22 @@ class TicketWidget extends StatelessWidget {
 }
 
 class TicketQRCode extends StatelessWidget {
-  const TicketQRCode({super.key, required this.code});
+  const TicketQRCode({
+    super.key,
+    required this.code,
+    this.size,
+  });
 
   final String code;
+  final double? size;
+
+  static const double defaultSize = 200.0;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 200,
-      height: 200,
+      width: size ?? defaultSize,
+      height: size ?? defaultSize,
       alignment: Alignment.center,
       padding: const EdgeInsets.all(15),
       decoration: const BoxDecoration(
@@ -168,7 +176,7 @@ class TicketQRCode extends StatelessWidget {
         color: Colors.white,
       ),
       child: PrettyQr(
-        size: 200,
+        size: size ?? defaultSize,
         data: 'og-campus://check-ticket/$code',
       ),
     );
