@@ -19,8 +19,8 @@ class MainNavigationBar extends StatelessWidget {
             label: 'Events',
           ),
           NavigationDestination(
-            icon: Icon(FontAwesomeIcons.ticket),
-            label: 'Tickets',
+            icon: Icon(FontAwesomeIcons.wallet),
+            label: 'Wallet',
           ),
           NavigationDestination(
             icon: Icon(Icons.account_circle_rounded),

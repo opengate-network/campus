@@ -65,13 +65,12 @@ class MainView extends StatelessWidget {
       return const TabBar(
         tabs: [
           Tab(
-            icon: Icon(Icons.cloud_outlined),
+            icon: Icon(FontAwesomeIcons.ticket),
+            text: 'Tickets',
           ),
           Tab(
-            icon: Icon(Icons.beach_access_sharp),
-          ),
-          Tab(
-            icon: Icon(Icons.brightness_5_sharp),
+            icon: Icon(FontAwesomeIcons.peopleGroup),
+            text: 'Cotisations',
           ),
         ],
       );
