@@ -4,127 +4,95 @@ import 'package:pretty_qr_code/pretty_qr_code.dart';
 class WalletFullscreen extends StatelessWidget {
   const WalletFullscreen({
     super.key,
-    required this.body,
-    required this.header,
-  });
-
-  final Widget body;
-  final Widget header;
-
-  @override
-  Widget build(BuildContext context) {
-    return Dialog.fullscreen(
-      child: Scaffold(
-        appBar: AppBar(title: header),
-        body: body,
-      ),
-    );
-  }
-}
-
-class WalletTileHeader extends StatelessWidget {
-  const WalletTileHeader({
-    super.key,
-    required this.imageProvider,
-    required this.text,
     this.organizationIconSize = 30,
+    required this.imageProvider,
+    required this.title,
+    required this.subtitle,
+    required this.code,
   });
 
+  final String code;
+  final Widget title;
+  final Widget subtitle;
   final ImageProvider<Object> imageProvider;
-  final Widget text;
+
   final double organizationIconSize;
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context).textTheme;
 
-    return Row(
-      children: [
-        Container(
-          width: organizationIconSize,
-          height: organizationIconSize,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            image: DecorationImage(
-              image: imageProvider,
-              fit: BoxFit.fill,
-            ),
+    return Dialog.fullscreen(
+      child: Scaffold(
+        appBar: AppBar(
+          title: Row(
+            children: [
+              Container(
+                width: organizationIconSize,
+                height: organizationIconSize,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  image: DecorationImage(
+                    image: imageProvider,
+                    fit: BoxFit.fill,
+                  ),
+                ),
+              ),
+              const SizedBox(width: 15),
+              AnimatedDefaultTextStyle(
+                style: theme.bodyLarge!.merge(
+                  const TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+                duration: kThemeChangeDuration,
+                child: title,
+              ),
+            ],
           ),
         ),
-        const SizedBox(width: 15),
-        AnimatedDefaultTextStyle(
-          style: theme.bodyLarge!.merge(
-            const TextStyle(
-              fontSize: 15,
-              fontWeight: FontWeight.w500,
-            ),
+        body: Padding(
+          padding: const EdgeInsets.only(bottom: 20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Divider(
+                color: Theme.of(context).colorScheme.inverseSurface,
+                height: 1,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  vertical: 10,
+                  horizontal: 10,
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    AnimatedDefaultTextStyle(
+                      style: theme.titleLarge!,
+                      duration: kThemeChangeDuration,
+                      child: title,
+                    ),
+                    AnimatedDefaultTextStyle(
+                      style: theme.labelMedium!,
+                      duration: kThemeChangeDuration,
+                      child: subtitle,
+                    ),
+                  ],
+                ),
+              ),
+              Expanded(
+                child: Center(
+                  child: WalletQRCode(
+                    code: code,
+                    size: 300.0,
+                  ),
+                ),
+              ),
+            ],
           ),
-          duration: kThemeChangeDuration,
-          child: text,
         ),
-      ],
-    );
-  }
-}
-
-class WalletTileBodyWithQRCode extends StatelessWidget {
-  const WalletTileBodyWithQRCode({
-    super.key,
-    this.centered = false,
-    required this.title,
-    required this.subtitle,
-    required this.code,
-  });
-
-  final bool centered;
-
-  final Widget title;
-  final Widget subtitle;
-  final String code;
-
-  @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context).textTheme;
-
-    final qrcodeWidget = Center(
-      child: WalletQRCode(
-        code: code,
-        size: centered ? 300.0 : null,
-      ),
-    );
-
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 20),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Divider(
-            color: Theme.of(context).colorScheme.inverseSurface,
-            height: 1,
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(
-              vertical: 10,
-              horizontal: 10,
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                AnimatedDefaultTextStyle(
-                  style: theme.titleLarge!,
-                  duration: kThemeChangeDuration,
-                  child: title,
-                ),
-                AnimatedDefaultTextStyle(
-                  style: theme.labelMedium!,
-                  duration: kThemeChangeDuration,
-                  child: subtitle,
-                ),
-              ],
-            ),
-          ),
-          centered ? Expanded(child: qrcodeWidget) : qrcodeWidget,
-        ],
       ),
     );
   }
@@ -161,8 +129,8 @@ class WalletQRCode extends StatelessWidget {
   }
 }
 
-class WalletTileSimpleBody extends StatelessWidget {
-  const WalletTileSimpleBody({
+class WalletCardBody extends StatelessWidget {
+  const WalletCardBody({
     super.key,
     this.organizationIconSize = 30,
     required this.imageProvider,
@@ -238,6 +206,8 @@ class WalletCard extends StatelessWidget {
     required this.subtitle,
     required this.code,
     required this.imageProvider,
+    required this.expanded,
+    this.onTap,
   });
 
   final bool showQRCode;
@@ -246,6 +216,9 @@ class WalletCard extends StatelessWidget {
   final Widget subtitle;
   final ImageProvider<Object> imageProvider;
   final String code;
+  final GestureTapCallback? onTap;
+
+  final bool expanded;
 
   static const cardShape = RoundedRectangleBorder(
     borderRadius: BorderRadius.all(
@@ -255,53 +228,50 @@ class WalletCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final walletTileHeader = WalletTileHeader(
-      imageProvider: imageProvider,
-      text: title,
-    );
-
     return Padding(
       padding: const EdgeInsets.all(10),
       child: Card(
         color: Theme.of(context).colorScheme.surfaceVariant,
-        shape: cardShape,
+        shape: WalletCard.cardShape,
         child: InkWell(
-          onTap: () {
-            showDialog(
-              context: context,
-              builder: (_) => WalletFullscreen(
-                body: WalletTileBodyWithQRCode(
+          customBorder: WalletCard.cardShape,
+          onTap: onTap,
+          child: AnimatedSize(
+            alignment: Alignment.topCenter,
+            duration: const Duration(milliseconds: 150),
+            reverseDuration: Duration.zero,
+            child: Column(
+              children: [
+                WalletCardBody(
+                  imageProvider: imageProvider,
                   title: title,
                   subtitle: subtitle,
-                  code: code,
-                  centered: true,
+                  organizationIconSize: 45,
                 ),
-                header: walletTileHeader,
-              ),
-            );
-          },
-          customBorder: cardShape,
-          child: Column(
-            children: showQRCode
-                ? [
-                    Padding(
-                      padding: const EdgeInsets.all(10),
-                      child: walletTileHeader,
+                if (expanded)
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 30),
+                    child: Center(
+                      child: GestureDetector(
+                        onTap: () {
+                          showDialog(
+                            context: context,
+                            builder: (_) => WalletFullscreen(
+                              title: title,
+                              subtitle: subtitle,
+                              code: code,
+                              imageProvider: imageProvider,
+                            ),
+                          );
+                        },
+                        child: WalletQRCode(
+                          code: code,
+                        ),
+                      ),
                     ),
-                    WalletTileBodyWithQRCode(
-                      title: title,
-                      subtitle: subtitle,
-                      code: code,
-                    ),
-                  ]
-                : [
-                    WalletTileSimpleBody(
-                      imageProvider: imageProvider,
-                      title: title,
-                      subtitle: subtitle,
-                      organizationIconSize: 45,
-                    ),
-                  ],
+                  ),
+              ],
+            ),
           ),
         ),
       ),
