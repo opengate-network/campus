@@ -80,12 +80,17 @@ class MainView extends StatelessWidget {
 }
 
 class MainAppbarLogo extends StatelessWidget {
-  const MainAppbarLogo({super.key});
+  const MainAppbarLogo({
+    super.key,
+    this.width = 180,
+  });
+
+  final double? width;
 
   @override
   Widget build(BuildContext context) {
     return Image(
-      width: 180,
+      width: width,
       image: AssetImage(
         MediaQuery.of(context).platformBrightness == Brightness.light
             ? 'assets/logos/opengate_logo_light.png'
