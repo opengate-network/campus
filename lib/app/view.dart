@@ -7,6 +7,8 @@ import 'package:campus/repositories/authentication_repository/authentication_rep
 
 import 'theme.dart';
 
+final RouteObserver<ModalRoute> routeObserver = RouteObserver<ModalRoute>();
+
 class App extends StatelessWidget {
   const App({
     super.key,
@@ -37,6 +39,7 @@ class AppView extends StatelessWidget {
     return MaterialApp(
       theme: theme,
       darkTheme: themeDark,
+      navigatorObservers: [routeObserver],
       home: FlowBuilder<AuthenticationStatus>(
         state: context.select((AuthenticationBloc bloc) => bloc.state.status),
         onGeneratePages: onGenerateAppViewPages,

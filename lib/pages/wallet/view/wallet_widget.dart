@@ -1,7 +1,9 @@
+import 'package:campus/app/app.dart';
 import 'package:flutter/material.dart';
 import 'package:pretty_qr_code/pretty_qr_code.dart';
+import 'package:screen_brightness/screen_brightness.dart';
 
-class WalletFullscreen extends StatelessWidget {
+class WalletFullscreen extends StatefulWidget {
   const WalletFullscreen({
     super.key,
     this.organizationIconSize = 30,
@@ -19,6 +21,49 @@ class WalletFullscreen extends StatelessWidget {
   final double organizationIconSize;
 
   @override
+  State<WalletFullscreen> createState() => _WalletFullscreenState();
+}
+
+class _WalletFullscreenState extends State<WalletFullscreen> with RouteAware {
+  @override
+  void initState() {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      routeObserver.subscribe(this, ModalRoute.of(context)!);
+    });
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    routeObserver.unsubscribe(this);
+    super.dispose();
+  }
+
+  @override
+  void didPop() {
+    super.didPop();
+    ScreenBrightness().resetScreenBrightness();
+  }
+
+  @override
+  void didPopNext() {
+    super.didPushNext();
+    ScreenBrightness().resetScreenBrightness();
+  }
+
+  @override
+  void didPush() {
+    super.didPush();
+    ScreenBrightness().setScreenBrightness(0.99);
+  }
+
+  @override
+  void didPushNext() {
+    super.didPushNext();
+    ScreenBrightness().resetScreenBrightness();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context).textTheme;
 
@@ -28,12 +73,12 @@ class WalletFullscreen extends StatelessWidget {
           title: Row(
             children: [
               Container(
-                width: organizationIconSize,
-                height: organizationIconSize,
+                width: widget.organizationIconSize,
+                height: widget.organizationIconSize,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   image: DecorationImage(
-                    image: imageProvider,
+                    image: widget.imageProvider,
                     fit: BoxFit.fill,
                   ),
                 ),
@@ -47,7 +92,7 @@ class WalletFullscreen extends StatelessWidget {
                   ),
                 ),
                 duration: kThemeChangeDuration,
-                child: title,
+                child: widget.title,
               ),
             ],
           ),
@@ -72,12 +117,12 @@ class WalletFullscreen extends StatelessWidget {
                     AnimatedDefaultTextStyle(
                       style: theme.titleLarge!,
                       duration: kThemeChangeDuration,
-                      child: title,
+                      child: widget.title,
                     ),
                     AnimatedDefaultTextStyle(
                       style: theme.labelMedium!,
                       duration: kThemeChangeDuration,
-                      child: subtitle,
+                      child: widget.subtitle,
                     ),
                   ],
                 ),
@@ -85,7 +130,7 @@ class WalletFullscreen extends StatelessWidget {
               Expanded(
                 child: Center(
                   child: WalletQRCode(
-                    code: code,
+                    code: widget.code,
                     size: 300.0,
                   ),
                 ),
