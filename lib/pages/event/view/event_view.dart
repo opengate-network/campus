@@ -1,5 +1,6 @@
 import 'package:campus/pages/main/main.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_osm_plugin/flutter_osm_plugin.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'event_view_school_grid.dart';
@@ -27,26 +28,6 @@ class EventView extends StatelessWidget {
   }
 }
 
-/*
-class _EventViewAppbar extends StatelessWidget {
-  const _EventViewAppbar({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return SliverAppBar(
-      title: const MainAppbarLogo(),
-      floating: true,
-      actions: [
-        IconButton(
-          onPressed: () {},
-          icon: const Icon(FontAwesomeIcons.bell),
-        )
-      ],
-    );
-  }
-}
-*/
-
 class _EventViewSegmentTitle extends StatelessWidget {
   final String text;
 
@@ -66,3 +47,4 @@ class _EventViewSegmentTitle extends StatelessWidget {
     );
   }
 }
+
