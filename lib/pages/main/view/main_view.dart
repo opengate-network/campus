@@ -1,5 +1,5 @@
 import 'package:campus/pages/account/account.dart';
-import 'package:campus/pages/event/event.dart';
+import 'package:campus/pages/discover/discover.dart';
 import 'package:campus/pages/main/cubit/main_cubit.dart';
 import 'package:campus/pages/wallet/wallet.dart';
 import 'package:flutter/material.dart';
@@ -37,7 +37,7 @@ class MainView extends StatelessWidget {
   Widget getPageFromSelector(MainPageSelector selector) {
     switch (selector) {
       case MainPageSelector.event:
-        return const EventView();
+        return const DiscoverView();
       case MainPageSelector.wallet:
         return const WalletView();
       case MainPageSelector.account:

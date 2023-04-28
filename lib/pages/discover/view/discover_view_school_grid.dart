@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class EventViewSchoolGrid extends StatelessWidget {
-  const EventViewSchoolGrid({super.key});
+class DiscoverViewSchoolGrid extends StatelessWidget {
+  const DiscoverViewSchoolGrid({super.key});
 
   static const spacing = 10.0;
 
@@ -18,7 +18,7 @@ class EventViewSchoolGrid extends StatelessWidget {
         delegate: SliverChildBuilderDelegate(
           childCount: 100,
           (BuildContext context, int index) {
-            return const EventViewSchoolGridTile();
+            return const DiscoverViewSchoolGridTile();
           },
         ),
       ),
@@ -26,10 +26,10 @@ class EventViewSchoolGrid extends StatelessWidget {
   }
 }
 
-class EventViewSchoolGridTile extends StatelessWidget {
+class DiscoverViewSchoolGridTile extends StatelessWidget {
   static const size = 50.0;
 
-  const EventViewSchoolGridTile({super.key});
+  const DiscoverViewSchoolGridTile({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -51,10 +51,10 @@ class EventViewSchoolGridTile extends StatelessWidget {
   }
 }
 
-class EventViewSchoolList extends StatelessWidget {
+class DiscoverViewSchoolList extends StatelessWidget {
   static const height = 205.0;
 
-  const EventViewSchoolList({super.key});
+  const DiscoverViewSchoolList({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -67,8 +67,8 @@ class EventViewSchoolList extends StatelessWidget {
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: 6,
-            prototypeItem: const EventViewSchoolListTile(),
-            itemBuilder: (context, index) => const EventViewSchoolListTile(),
+            prototypeItem: const DiscoverViewSchoolListTile(),
+            itemBuilder: (context, index) => const DiscoverViewSchoolListTile(),
           ),
         ),
       ),
@@ -76,10 +76,10 @@ class EventViewSchoolList extends StatelessWidget {
   }
 }
 
-class EventViewSchoolListTile extends StatelessWidget {
+class DiscoverViewSchoolListTile extends StatelessWidget {
   static const size = 145.0;
 
-  const EventViewSchoolListTile({super.key});
+  const DiscoverViewSchoolListTile({super.key});
 
   @override
   Widget build(BuildContext context) {

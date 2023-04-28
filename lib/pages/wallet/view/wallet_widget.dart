@@ -274,7 +274,7 @@ class WalletCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(10),
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
       child: Card(
         color: Theme.of(context).colorScheme.surfaceVariant,
         shape: WalletCard.cardShape,

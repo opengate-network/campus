@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class EventViewStory extends StatelessWidget {
+class DiscoverViewStory extends StatelessWidget {
   static const height = 150.0;
 
-  const EventViewStory({super.key});
+  const DiscoverViewStory({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,8 +16,8 @@ class EventViewStory extends StatelessWidget {
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: 6,
-            prototypeItem: const EventViewStoryTile(),
-            itemBuilder: (context, index) => const EventViewStoryTile(),
+            prototypeItem: const DiscoverViewStoryTile(),
+            itemBuilder: (context, index) => const DiscoverViewStoryTile(),
           ),
         ),
       ),
@@ -25,10 +25,10 @@ class EventViewStory extends StatelessWidget {
   }
 }
 
-class EventViewStoryTile extends StatelessWidget {
+class DiscoverViewStoryTile extends StatelessWidget {
   static const bubbleSize = 100.0;
 
-  const EventViewStoryTile({super.key});
+  const DiscoverViewStoryTile({super.key});
 
   @override
   Widget build(BuildContext context) {
