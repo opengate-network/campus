@@ -1,8 +1,4 @@
-import 'package:campus/pages/main/main.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_osm_plugin/flutter_osm_plugin.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
 import 'event_view_school_grid.dart';
 import 'event_view_story.dart';
 
@@ -17,7 +13,7 @@ class EventView extends StatelessWidget {
         EventViewStory(),
         _EventViewSegmentTitle(text: 'Cette semaine'),
         EventViewSchoolList(),
-        _EventViewSegmentTitle(text: 'Par composante'),
+        _EventViewSegmentTitle(text: 'Par établissement'),
         EventViewSchoolList(),
         _EventViewSegmentTitle(text: 'Soirée'),
         EventViewSchoolList(),
