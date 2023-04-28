@@ -20,7 +20,7 @@ class AuthenticationRepositorySupabase extends AuthenticationRepository {
     return await _authClient.signInWithOAuth(
       supabase_auth.Provider.keycloak,
       redirectTo: '${urlScheme}login',
-      scopes: 'openid,email',
+      scopes: 'openid,complete_profile',
     );
   }
 

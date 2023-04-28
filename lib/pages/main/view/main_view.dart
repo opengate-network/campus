@@ -1,3 +1,4 @@
+import 'package:campus/pages/account/account.dart';
 import 'package:campus/pages/event/event.dart';
 import 'package:campus/pages/main/cubit/main_cubit.dart';
 import 'package:campus/pages/wallet/wallet.dart';
@@ -40,7 +41,7 @@ class MainView extends StatelessWidget {
       case MainPageSelector.wallet:
         return const WalletView();
       case MainPageSelector.account:
-        return const SizedBox();
+        return const AccountPage();
     }
   }
 
