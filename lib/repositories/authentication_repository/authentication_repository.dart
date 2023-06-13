@@ -1,5 +1,5 @@
 export 'models/user.dart';
-export 'authentication_repository_supabase.dart';
+export 'authentication_repository_api.dart';
 
 import 'models/user.dart';
 

@@ -1,3 +1,4 @@
+import 'package:campus/pages/event/event.dart';
 import 'package:flutter/material.dart';
 
 class DiscoverViewSchoolGrid extends StatelessWidget {
@@ -103,13 +104,17 @@ class DiscoverViewSchoolListTile extends StatelessWidget {
           ),
           child: InkWell(
             borderRadius: const BorderRadius.all(Radius.circular(12)),
-            onTap: () {},
+            onTap: () => Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (_) => const EventPage(),
+              ),
+            ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Ink(
                   width: size,
-                  height: size-8,
+                  height: size - 8,
                   decoration: const BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(12)),
                     image: DecorationImage(

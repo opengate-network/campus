@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:campus/app/routes.dart';
 import 'package:campus/blocs/authentication/authentication_bloc.dart';
-import 'package:campus/repositories/authentication_repository/authentication_repository_supabase.dart';
+import 'package:campus/repositories/authentication_repository/authentication_repository_api.dart';
 
 import 'theme.dart';
 
@@ -12,10 +12,10 @@ final RouteObserver<ModalRoute> routeObserver = RouteObserver<ModalRoute>();
 class App extends StatelessWidget {
   const App({
     super.key,
-    required AuthenticationRepositorySupabase authenticationRepository,
+    required AuthenticationRepositoryAPI authenticationRepository,
   }) : _authenticationRepository = authenticationRepository;
 
-  final AuthenticationRepositorySupabase _authenticationRepository;
+  final AuthenticationRepositoryAPI _authenticationRepository;
 
   @override
   Widget build(BuildContext context) {

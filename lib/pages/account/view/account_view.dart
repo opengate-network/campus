@@ -1,4 +1,4 @@
-import 'package:campus/repositories/authentication_repository/authentication_repository_supabase.dart';
+import 'package:campus/repositories/authentication_repository/authentication_repository_api.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -18,11 +18,11 @@ class AccountView extends StatelessWidget {
               InkWell(
                 child: ListTile(
                   title: Text(context
-                      .read<AuthenticationRepositorySupabase>()
+                      .read<AuthenticationRepositoryAPI>()
                       .currentUser
                       .name),
                   subtitle: Text(context
-                      .read<AuthenticationRepositorySupabase>()
+                      .read<AuthenticationRepositoryAPI>()
                       .currentUser
                       .email),
                 ),
@@ -38,7 +38,7 @@ class AccountView extends StatelessWidget {
               const Divider(height: 1),
               InkWell(
                 onTap: () =>
-                    context.read<AuthenticationRepositorySupabase>().logOut(),
+                    context.read<AuthenticationRepositoryAPI>().logOut(),
                 child: const ListTile(
                   title: Text('Se déconnecter'),
                 ),
@@ -88,6 +88,8 @@ class AccountSectionTitle extends StatelessWidget {
 }
 
 class AccountListTile extends StatelessWidget {
+  const AccountListTile({super.key});
+
   @override
   Widget build(BuildContext context) {
     return InkWell(

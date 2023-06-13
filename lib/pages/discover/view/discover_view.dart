@@ -27,7 +27,8 @@ class DiscoverView extends StatelessWidget {
 class _DiscoverViewSegmentTitle extends StatelessWidget {
   final String text;
 
-  const _DiscoverViewSegmentTitle({super.key, required this.text});
+  const
+  _DiscoverViewSegmentTitle({super.key, required this.text});
 
   @override
   Widget build(BuildContext context) {

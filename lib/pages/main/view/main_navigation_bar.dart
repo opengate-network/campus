@@ -15,8 +15,8 @@ class MainNavigationBar extends StatelessWidget {
         selectedIndex: state.pageSelector.index,
         destinations: const [
           NavigationDestination(
-            icon: Icon(Icons.calendar_today),
-            label: 'Events',
+            icon: Icon(FontAwesomeIcons.binoculars),
+            label: 'Découvrir',
           ),
           NavigationDestination(
             icon: Icon(FontAwesomeIcons.wallet),
