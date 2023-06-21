@@ -20,6 +20,8 @@ class AuthenticationRepositoryAPI extends AuthenticationRepository {
 
   @override
   Future<bool> ssoLogin() async {
+    _userStreamController.add(const User("", 'name', 'surname', ''));
+
     var url = Uri.parse('$apiUrl/auth/login_sso');
     final result = await FlutterWebAuth2.authenticate(url: '$apiUrl/auth/login', callbackUrlScheme: urlScheme);
 
