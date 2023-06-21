@@ -6,7 +6,6 @@ class EventView extends StatelessWidget {
 
   final MapController controller = MapController(
     initMapWithUserPosition: const UserTrackingOption(enableTracking: true),
-    initPosition: GeoPoint(latitude: 48.8408, longitude: 2.5923),
   );
 
   @override
@@ -61,9 +60,10 @@ class EventView extends StatelessWidget {
   Widget _showMap() {
     return SliverToBoxAdapter(
       child: SizedBox(
-        height: 200,
+        height: 300,
         child: OSMFlutter(
           controller: controller,
+          showZoomController: true,
           initZoom: 16,
           minZoomLevel: 8,
           maxZoomLevel: 19,
