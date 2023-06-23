@@ -50,7 +50,8 @@ class MainView extends StatelessWidget {
     if (selector == MainPageSelector.event) {
       actions.add(
         Badge(
-          alignment: AlignmentDirectional.center,
+          label: Text('20'),
+          offset: const Offset(-10, 10),
           child: IconButton(
             onPressed: () {},
             icon: const Icon(FontAwesomeIcons.bell),
@@ -84,14 +85,17 @@ class MainAppbarLogo extends StatelessWidget {
   const MainAppbarLogo({
     super.key,
     this.width = 180,
+    this.opacity,
   });
 
   final double? width;
+  final Animation<double>? opacity;
 
   @override
   Widget build(BuildContext context) {
     return Image(
       width: width,
+      opacity: opacity,
       image: AssetImage(
         MediaQuery.of(context).platformBrightness == Brightness.light
             ? 'assets/logos/opengate_logo_light.png'

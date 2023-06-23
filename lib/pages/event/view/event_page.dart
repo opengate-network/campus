@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'event_buy_fab.dart';
 import 'event_view.dart';
 
 class EventPage extends StatelessWidget {
@@ -7,6 +8,9 @@ class EventPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return EventView();
+    return Scaffold(
+      body: EventView(),
+      floatingActionButton: EventBuyFAB(),
+    );
   }
 }
