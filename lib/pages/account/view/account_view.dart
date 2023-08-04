@@ -43,6 +43,29 @@ class AccountView extends StatelessWidget {
                   title: Text('Se déconnecter'),
                 ),
               ),
+              const AccountSectionTitle(text: 'Mes structures'),
+              InkWell(
+                onTap: () {},
+                child: const ListTile(
+                  title: Text('ESIEESPACE'),
+                  subtitle: Text('Association'),
+                  leading: CircleAvatar(
+                    backgroundImage:
+                        NetworkImage("https://media.licdn.com/dms/image/C4E0BAQGG9rorK4ToVw/company-logo_200_200/0/1660766901821?e=2147483647&v=beta&t=3PHkrn0hjamfzppryw96zmFFd_Po_h361dbeu8RSxj4"),
+                  ),
+                ),
+              ),
+              InkWell(
+                onTap: () {},
+                child: const ListTile(
+                  title: Text('Club musique'),
+                  subtitle: Text('Club associé à BDE ESIEE Paris'),
+                  leading: CircleAvatar(
+                    backgroundImage:
+                        AssetImage("assets/logos/components/esiee.png"),
+                  ),
+                ),
+              ),
               const AccountSectionTitle(text: 'Paiement'),
               InkWell(
                 onTap: () {},
