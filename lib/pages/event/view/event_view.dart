@@ -75,12 +75,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
       child: SizedBox(
         height: 300,
         child: OSMFlutter(
-          controller: controller,
-          showZoomController: true,
-          initZoom: 16,
-          minZoomLevel: 8,
-          maxZoomLevel: 19,
-          stepZoom: 1.0,
+          controller: controller,osmOption: const OSMOption(showZoomController: true, zoomOption: ZoomOption(initZoom: 16,minZoomLevel: 8,maxZoomLevel: 19,stepZoom: 1.0))
         ),
       ),
     );

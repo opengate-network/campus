@@ -276,7 +276,7 @@ class WalletCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
       child: Card(
-        color: Theme.of(context).colorScheme.surfaceVariant,
+        color: Theme.of(context).colorScheme.surfaceContainerHigh,
         shape: WalletCard.cardShape,
         child: InkWell(
           customBorder: WalletCard.cardShape,
